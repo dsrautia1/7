@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect Generator Pro+</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PixelPerfect Generator Pro+</h1>
+            <p class="subtitle">Create infinite pixel art, characters, avatars, and logos with advanced AI algorithms</p>
+            
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="artwork">Artwork</button>
+                <button class="mode-btn" data-mode="character">Characters</button>
+                <button class="mode-btn" data-mode="avatar">Avatars</button>
+                <button class="mode-btn" data-mode="logo">Logos</button>
+                <button class="mode-btn" data-mode="hybrid">Hybrid</button>
+            </div>
+            
+            <div class="instructions">
+                <h3>How to Use This Application:</h3>
+                <ol>
+                    <li>Select a generation mode from the buttons above</li>
+                    <li>Choose a style and adjust parameters for your creation</li>
+                    <li>Use infinite generation to create endless variations</li>
+                    <li>Modify the canvas directly with brush tools</li>
+                    <li>Save your favorite creations to the gallery</li>
+                    <li>Download or share when you're satisfied</li>
+                </ol>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls">
+                <div class="control-group artwork-controls">
+                    <h2>Art Style</h2>
+                    <label for="artStyle">Select Artistic Style:</label>
+                    <select id="artStyle">
+                        <option value="abstract">Abstract Expressionism (Pollock)</option>
+                        <option value="impressionist">Impressionism (Monet)</option>
+                        <option value="pointillism">Pointillism (Seurat)</option>
+                        <option value="cubism">Cubism (Picasso)</option>
+                        <option value="popart">Pop Art (Warhol)</option>
+                        <option value="vangogh">Post-Impressionism (Van Gogh)</option>
+                        <option value="renaissance">Renaissance (Da Vinci)</option>
+                        <option value="japanese">Japanese Woodblock (Hokusai)</option>
+                        <option value="surreal">Surrealism (Dali)</option>
+                        <option value="digital">Digital Pixel Art</option>
+                    </select>
+                    
+                    <label for="resolution">Resolution:</label>
+                    <select id="resolution">
+                        <option value="64">64x64 (Icon)</option>
+                        <option value="128">128x128 (Small)</option>
+                        <option value="256">256x256 (Medium)</option>
+                        <option value="512" selected>512x512 (Standard)</option>
+                        <option value="1024">1024x1024 (HD)</option>
+                    </select>
+                    <p class="resolution-warning" id="resolutionWarning">Higher resolutions may take longer to generate</p>
+                    
+                    <label for="colorScheme">Color Palette:</label>
+                    <select id="colorScheme">
+                        <option value="vibrant">Vibrant</option>
+                        <option value="pastel">Pastel</option>
+                        <option value="monochrome">Monochrome</option>
+                        <option value="warm">Warm Colors</option>
+                        <option value="cool">Cool Colors</option>
+                        <option value="earth">Earth Tones</option>
+                        <option value="neon">Neon</option>
+                        <option value="custom">Custom Palette</option>
+                    </select>
+                    
+                    <div id="customPaletteContainer">
+                        <label for="customPalette">Custom Palette (hex codes, comma separated):</label>
+                        <input type="text" id="customPalette" value="#FF0000,#00FF00,#0000FF,#FFFF00,#FF00FF,#00FFFF">
+                    </div>
+                    
+                    <div class="color-palette" id="presetPalette">
+                        <div class="color-box" style="background: #FF6B6B;" data-color="#FF6B6B"></div>
+                        <div class="color-box" style="background: #4ECDC4;" data-color="#4ECDC4"></div>
+                        <div class="color-box" style="background: #FFE66D;" data-color="#FFE66D"></div>
+                        <div class="color-box" style="background: #1A535C;" data-color="#1A535C"></div>
+                        <div class="color-box" style="background: #FF9F1C;" data-color="#FF9F1C"></div>
+                    </div>
+                    
+                    <label for="pixelDensity">Pixel Density:</label>
+                    <input type="range" id="pixelDensity" min="10" max="100" value="50">
+                    <output for="pixelDensity" id="densityValue">50</output>
+                    
+                    <label for="complexity">Algorithm Complexity:</label>
+                    <input type="range" id="complexity" min="1" max="10" value="5">
+                    <output for="complexity" id="complexityValue">5</output>
+                    
+                    <label for="brushSize">Brush Size (for editing):</label>
+                    <input type="range" id="brushSize" min="1" max="20" value="1">
+                    <output for="brushSize" id="brushValue">1</output>
+                    
+                    <div class="infinite-controls">
+                        <button id="generateBtn">Generate New Artwork</button>
+                        <button id="infiniteBtn">Infinite Generation</button>
+                    </div>
+                    <button id="stopInfiniteBtn">Stop Infinite Generation</button>
+                </div>
+                
+                <div class="control-group character-controls">
+                    <h2>Character Creation</h2>
+                    
+                    <label for="characterType">Character Type:</label>
+                    <select id="characterType">
+                        <option value="human">Human</option>
+                        <option value="robot">Robot</option>
+                        <option value="animal">Animal</option>
+                        <option value="fantasy">Fantasy Creature</option>
+                        <option value="alien">Alien</option>
+                    </select>
+                    
+                    <label for="characterPose">Pose:</label>
+                    <select id="characterPose">
+                        <option value="standing">Standing</option>
+                        <option value="walking">Walking</option>
+                        <option value="running">Running</option>
+                        <option value="jumping">Jumping</option>
+                        <option value="sitting">Sitting</option>
+                    </select>
+                    
+                    <div class="two-column">
+                        <div>
+                            <label for="characterSize">Size:</label>
+                            <select id="characterSize">
+                                <option value="small">Small</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="large">Large</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="characterStyle">Style:</label>
+                            <select id="characterStyle">
+                                <option value="rpg">RPG</option>
+                                <option value="anime">Anime</option>
+                                <option value="western">Western</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="generateCharacter">Generate Character</button>
+                    <button id="infiniteCharacter">Infinite Characters</button>
+                </div>
+                
+                <div class="control-group avatar-controls">
+                    <h2>Avatar Creation</h2>
+                    
+                    <label for="avatarStyle">Avatar Style:</label>
+                    <select id="avatarStyle">
+                        <option value="pixel">Pixel Art</option>
+                        <option value="retro">Retro</option>
+                        <option value="modern">Modern</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="robotic">Robotic</option>
+                    </select>
+                    
+                    <div class="two-column">
+                        <div>
+                            <label for="avatarMood">Mood:</label>
+                            <select id="avatarMood">
+                                <option value="happy">Happy</option>
+                                <option value="serious">Serious</option>
+                                <option value="angry">Angry</option>
+                                <option value="sad">Sad</option>
+                                <option value="neutral">Neutral</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="avatarSize">Size:</label>
+                            <select id="avatarSize">
+                                <option value="32">32x32</option>
+                                <option value="64" selected>64x64</option>
+                                <option value="128">128x128</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <label for="avatarFeatures">Features:</label>
+                    <select id="avatarFeatures">
+                        <option value="simple">Simple</option>
+                        <option value="detailed">Detailed</option>
+                        <option value="very-detailed">Very Detailed</option>
+                    </select>
+                    
+                    <button id="generateAvatar">Generate Avatar</button>
+                    <button id="infiniteAvatar">Infinite Avatars</button>
+                </div>
+                
+                <div class="control-group logo-controls">
+                    <h2>Logo Creation</h2>
+                    
+                    <label for="logoText">Logo Text (optional):</label>
+                    <input type="text" id="logoText" placeholder="Enter company name">
+                    
+                    <label for="logoIndustry">Industry:</label>
+                    <select id="logoIndustry">
+                        <option value="tech">Technology</option>
+                        <option value="food">Food & Beverage</option>
+                        <option value="health">Health & Wellness</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <label for="logoStyle">Logo Style:</label>
+                    <select id="logoStyle">
+                        <option value="modern">Modern</option>
+                        <option value="vintage">Vintage</option>
+                        <option value="minimal">Minimalist</option>
+                        <option value="handmade">Handmade</option>
+                        <option value="corporate">Corporate</option>
+                    </select>
+                    
+                    <label for="logoComplexity">Complexity:</label>
+                    <input type="range" id="logoComplexity" min="1" max="5" value="3">
+                    <output for="logoComplexity" id="logoComplexityValue">3</output>
+                    
+                    <button id="generateLogo">Generate Logo</button>
+                    <button id="infiniteLogo">Infinite Logos</button>
+                </div>
+                
+                <div class="control-group hybrid-controls">
+                    <h2>Hybrid Generation</h2>
+                    
+                    <div class="hybrid-weights">
+                        <label for="styleWeight">Style Weight: <span id="styleWeightValue">40%</span></label>
+                        <input type="range" id="styleWeight" min="0" max="100" value="40">
+                        
+                        <label for="algorithmWeight">Algorithm Weight: <span id="algorithmWeightValue">30%</span></label>
+                        <input type="range" id="algorithmWeight" min="0" max="100" value="30">
+                        
+                        <label for="characterWeight">Character Weight: <span id="characterWeightValue">20%</span></label>
+                        <input type="range" id="characterWeight" min="0" max="100" value="20">
+                        
+                        <label for="logoWeight">Logo Weight: <span id="logoWeightValue">10%</span></label>
+                        <input type="range" id="logoWeight" min="0" max="100" value="10">
+                    </div>
+                    
+                    <label for="blendMode">Blend Mode:</label>
+                    <select id="blendMode">
+                        <option value="overlay">Overlay</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="lighten">Lighten</option>
+                        <option value="darken">Darken</option>
+                    </select>
+                    
+                    <button id="hybridGenerateBtn">Generate Hybrid Art</button>
+                    <button id="hybridSettingsBtn">Toggle Settings</button>
+                </div>
+                
+                <div class="control-group">
+                    <h2>Advanced Parameters</h2>
+                    
+                    <label for="algorithm">Generation Algorithm:</label>
+                    <select id="algorithm">
+                        <option value="procedural">Procedural Generation</option>
+                        <option value="fractal">Fractal Patterns</option>
+                        <option value="voronoi">Voronoi Diagram</option>
+                        <option value="perlin">Perlin Noise</option>
+                        <option value="cellular">Cellular Automata</option>
+                        <option value="neural">Neural Style Transfer</option>
+                    </select>
+                    <p class="algorithm-info">Neural algorithm uses advanced AI for style transfer</p>
+                    
+                    <label for="symmetry">Symmetry:</label>
+                    <select id="symmetry">
+                        <option value="none">None</option>
+                        <option value="horizontal">Horizontal</option>
+                        <option value="vertical">Vertical</option>
+                        <option value="radial">Radial</option>
+                        <option value="mandala">Mandala (8-way)</option>
+                    </select>
+                    
+                    <label for="texture">Texture Overlay:</label>
+                    <select id="texture">
+                        <option value="none">None</option>
+                        <option value="canvas">Canvas</option>
+                        <option value="paper">Paper</option>
+                        <option value="wood">Wood</option>
+                        <option value="metal">Metal</option>
+                        <option value="noise">Film Grain</option>
+                    </select>
+                    
+                    <label for="lighting">Lighting Direction:</label>
+                    <select id="lighting">
+                        <option value="none">None</option>
+                        <option value="top">Top</option>
+                        <option value="bottom">Bottom</option>
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                        <option value="ambient">Ambient</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <h2>Canvas Tools</h2>
+                    <div class="tool-buttons">
+                        <button id="undoBtn" class="tool-btn" title="Undo (Ctrl+Z)">↩ Undo</button>
+                        <button id="redoBtn" class="tool-btn" title="Redo (Ctrl+Y)">↪ Redo</button>
+                        <button id="zoomInBtn" class="tool-btn" title="Zoom In (Ctrl++)">+ Zoom In</button>
+                        <button id="zoomOutBtn" class="tool-btn" title="Zoom Out (Ctrl+-)">- Zoom Out</button>
+                        <button id="resetViewBtn" class="tool-btn" title="Reset View (Ctrl+0)">⟳ Reset View</button>
+                        <button id="fullscreenBtn" class="tool-btn" title="Toggle Fullscreen">⛶ Fullscreen</button>
+                        <button id="randomGenerateBtn" class="tool-btn" title="Random Generation">🎲 Random</button>
+                    </div>
+                    
+                    <label for="colorPicker">Current Color:</label>
+                    <input type="color" id="colorPicker" value="#FF6B6B">
+                    
+                    <div class="color-history" id="colorHistory">
+                        <!-- Color history will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h2>Gallery</h2>
+                    <div class="gallery" id="gallery">
+                        <!-- Gallery items will be added here -->
+                    </div>
+                    <button id="saveToGallery">Save to Gallery</button>
+                    <button id="clearGallery">Clear Gallery</button>
+                </div>
+                
+                <div class="control-group">
+                    <h2>Download Options</h2>
+                    <div class="download-options">
+                        <button id="downloadPng">Download PNG</button>
+                        <button id="downloadJpg">Download JPG</button>
+                        <button id="downloadSvg">Download SVG</button>
+                        <button id="downloadGif">Animated GIF (10 frames)</button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <h2>Share Creation</h2>
+                    <div class="download-options">
+                        <button id="shareTwitter">Share on Twitter</button>
+                        <button id="shareFacebook">Share on Facebook</button>
+                        <button id="shareInstagram">Share on Instagram</button>
+                        <button id="copyLink">Copy Image Link</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="canvas-container" id="canvasContainer">
+                <div class="generation-timer" id="generationTimer">
+                    <div class="timer-text">Generating your artwork...</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="timerValue">10s</div>
+                </div>
+                <canvas id="previewCanvas" width="512" height="512"></canvas>
+                <div class="zoom-level" id="zoomLevel">100%</div>
+                <div class="pixel-info">
+                    <p id="sizeInfo">Image size: 512x512 pixels | Total pixels: 262,144</p>
+                    <p>Click and drag on the canvas to modify pixels | Right-click to sample color</p>
+                    <p>Alt+drag to pan | Mouse wheel to zoom</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>PixelPerfect Generator Pro+ &copy; 2023 | Advanced pixel art generation with AI algorithms</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
