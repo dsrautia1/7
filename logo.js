@@ -843,8 +843,7 @@ function initLogoGenerator() {
 // Start the logo generator when the page loads
 window.addEventListener('load', initLogoGenerator);
 
-// At the end of logo.js, add:
-export {getColorPalette, generateTechLogo, generateFoodLogo, generateFashionLogo, generateHealthLogo, 
-    generateAbstractLogo, generateLogo, generateStyledLogo, resetView, showGenerationTimer, hideGenerationTimer,
-    saveState, initLogoGenerator,
+// At the end of logo.js, replace the current export with:
+export {
+  generateLogo,initLogoGenerator,
 };
