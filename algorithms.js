@@ -1178,8 +1178,6 @@ function startAlgorithm(algorithmType, complexity, density) {
     console.log('Generated', algorithmType, 'art with complexity:', complexity, 'density:', density);
 }
 
-export {getColorPalette,hexToRgb, clamp,distance, generateVoronoiArt, generatePerlinNoiseArt,
-    generateFractalArt, generateCellularAutomata, generateGeneticAlgorithmArt, generateNeuralStyleTransfer,
-    generateWaveFunctionCollapse, generateReactionDiffusion, generateLSystemFractal, generateParticleSystem,
-    collapseCell, propagateConstraints,startAlgorithm,
+export {generateVoronoiArt, generatePerlinNoiseArt, generateFractalArt, generateCellularAutomata,
+    generateGeneticAlgorithmArt, generateNeuralStyleTransfer,generateWaveFunctionCollapse,startAlgorithm,
 };
