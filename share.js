@@ -163,7 +163,6 @@ function clearGallery() {
     }
 }
 
-export {
-    downloadImage, generateGif, shareOnFacebook, shareOnInstagram, shareOnTwitter,
-    copyImageLink, saveToGallery, loadGallery, updateGallery, deleteGalleryItem,clearGallery,
+export {downloadImage, generateGif, shareOnFacebook, shareOnInstagram, shareOnTwitter,
+    copyImageLink, saveToGallery, loadGallery,clearGallery,
 };
