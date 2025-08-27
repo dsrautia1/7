@@ -1,49 +1,32 @@
 // At the top of script.js, add:
-import {getColorPalette, generateTechLogo, generateFoodLogo, generateFashionLogo, generateHealthLogo, 
-    generateAbstractLogo, generateLogo, generateStyledLogo, resetView, showGenerationTimer, hideGenerationTimer,
-    saveState, initLogoGenerator,
+import {
+  generateLogo,initLogoGenerator,
 } from './logo.js';
 
-import {constructor, init, generateAvatar, gnerateStyledAvatar, generateGeometricAvatar, generatePixelArtAvatar,
-    generateMinimalistAvatar, generateRealisticAvatar, generateAbstractAvatar, generateCyberpunkAvatar, generateWatercolorAvatar,
-    generateLowPolyAvatar, generateCartoonAvatar, drawRealisticEyes, drawRealisticMouth, drawCyberpunkEyes,
-    drawCircuitPattern, drawWatercolorEyes, drawWatercolorMouth, drawBackground, applyMoodEffects, applyFeatures,
-    applySizeScaling, getColorPalette, lightenColor, darkenColor, adjustTransparency, extractHue, addNoiseTexture,
-    hslToRgb, drawShape, getTrianglePoints, showGenerationTimer, hideGenerationTimer, resetView, saveState,
-    undo, redo, exportToPNG, exportToJPEG, getImageDataURL, applyFilter, animateTransition, 
-} from './avatar.js';
+import {generateAvatar} from './avatar.js';
 
-import {constructor, init, generateCharacter, generateAdvancedCharacter,generateHumanCharacter, 
-    generateCreatureCharacter, generateRobotCharacter, generateFantasyCharacter,generateHybridCharacter, 
-    drawAdvancedBody, drawAdvancedHead, drawAdvancedLimbs, drawAdvancedFace,getAdvancedColorPalette,
-    getDetailsLevel, adjustColor, getRandomEyeColor, drawBackground, addSpecialEffects,startIdleAnimation,
-    animateCharacter, showGenerationTimer, hideGenerationTimer, resetView, saveState,
-} from './character.js';
+import {generateCharacter, resetView, init} from './character.js';
 
-import {constructor, resizeCanvas, setStyle, setComplexity, setDensity, setPalette, generateArt, generateAbstractArt,
-    generateImpressionistArt,generatePointillismArt, generateCubismArt, generatePopArt, generateVanGoghStyle,
-    generateRenaissanceStyle,generateJapaneseStyle,generateSurrealism, generatePixelArt,generateFractalArt,
-    drawFractal,generateFluidArt,drawFluidDrop, generateGeometricArt, drawGeometricShape, generateCyberpunkArt,
-    createGradientBackground,adjustColorAlpha, addParticles, animate, startAnimation, stopAnimation, saveArtwork,
-    clearCanvas,
+import {
+    generateAbstractArt,
+    generateImpressionistArt, generatePointillismArt, generateCubismArt, generatePopArt, generateVanGoghStyle,
+    generateRenaissanceStyle, generateJapaneseStyle, generateSurrealism, generatePixelArt, generateFractalArt,
 } from './artwork.js';
 
-import {getColorPalette,hexToRgb, clamp,distance, generateVoronoiArt, generatePerlinNoiseArt,
-    generateFractalArt, generateCellularAutomata, generateGeneticAlgorithmArt, generateNeuralStyleTransfer,
-    generateWaveFunctionCollapse, generateReactionDiffusion, generateLSystemFractal, generateParticleSystem,
-    collapseCell, propagateConstraints,startAlgorithm,
+import {generateVoronoiArt, generatePerlinNoiseArt, generateFractalArt, generateCellularAutomata,
+    generateGeneticAlgorithmArt, generateNeuralStyleTransfer,generateWaveFunctionCollapse,startAlgorithm,
 } from './algorithms.js';
 
 import {downloadImage, generateGif, shareOnFacebook, shareOnInstagram, shareOnTwitter,
-    copyImageLink, saveToGallery, loadGallery, updateGallery, deleteGalleryItem,clearGallery,
+    copyImageLink, saveToGallery, loadGallery,clearGallery,
 } from './share.js';
 
 import {applyTexture,applyLighting,} from './postprocessing.js';
 
 import {
-    getColorPalette, showGenerationTimer, hideGenerationTimer, startInfiniteGeneration, startInfiniteCharacters,
-    startInfiniteAvatars, startInfiniteLogos, stopInfiniteGeneration, initHistory, saveState, updateHistoryButtons, undo, redo,
-    zoom, zoomIn, zoomOut, resetView, updateZoomDisplay, updateCanvasTransform, toggleFullscreen, handleFullscreenChange,
+    showGenerationTimer, hideGenerationTimer, startInfiniteGeneration, startInfiniteCharacters,
+    startInfiniteAvatars, startInfiniteLogos, stopInfiniteGeneration, initHistory, saveState, undo, redo,
+    zoom, zoomIn, zoomOut, resetView, updateZoomDisplay, updateCanvasTransform, toggleFullscreen,
     handleKeydown, hexToRgb, rgbToHex, clamp,
 } from './utilities.js';
 
@@ -77,6 +60,7 @@ const AppState = {
         blendMode: 'overlay'
     }
 };
+
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -1359,16 +1343,4 @@ function generateCharacterLogoCombo() {
     // Apply post-processing
     applyTexture();
     applyLighting();
-}
-
-// Export functions for potential module use
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        hexToRgb,
-        rgbToHex,
-        clamp,
-        generateImage,
-        generateRandomImage,
-        generateHybridArt
-    };
 }
